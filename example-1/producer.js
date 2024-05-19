@@ -3,6 +3,11 @@ require('dotenv').config(); // dotenv modülünü yükleyin ve .env dosyasındak
 
 const dbHost = process.env.HOST;
 const broker =`${dbHost}:9092`;
+
+const topic_name = process.argv[2] || "Logs2";
+const partition = process.argv[3] || 0;
+
+
 createProducer();
 
 async function createProducer() {
@@ -18,11 +23,11 @@ async function createProducer() {
     console.log("Bağlantı başarılı");
    
     const message_result = await producer.send({
-        topic:"Logs",
+        topic:topic_name,
         messages:[
             {
                 value:"Bu bir test log mesajıdır..",
-                partition:0
+                partition:partition
             }
         ]
 

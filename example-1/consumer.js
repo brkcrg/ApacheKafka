@@ -3,6 +3,10 @@ require('dotenv').config(); // dotenv modülünü yükleyin ve .env dosyasındak
 
 const dbHost = process.env.HOST;
 const broker =`${dbHost}:9092`;
+
+//node cpnsumer.js Logs || Logs2
+const topic_name = process.argv[2] || "Logs2"
+
 createConsumer();
 
 async function createConsumer() {
@@ -21,7 +25,7 @@ async function createConsumer() {
    
     //Consumer subscribe...
     await consumer.subscribe({
-        topic:"Logs",
+        topic:topic_name,
         fromBeginning:"true" //başlangıçtan başla
 
     });
