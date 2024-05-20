@@ -54,7 +54,13 @@ npm install kafka-node
 # Kafka Producer ve Consumer Uygulamalarını Başlatma
 
 Kafka Producer ve Consumer uygulamalarını başlatmak için aşağıdaki adımları izleyin.
+## Topic Oluşturma
 
+1. `topic.js` dosyasını başlatmak için aşağıdaki komutu çalıştırın:
+
+```bash
+node topic.js
+```
 ## Producer Uygulamasını Başlatma
 
 1. `producer.js` dosyasını başlatmak için aşağıdaki komutu çalıştırın:
